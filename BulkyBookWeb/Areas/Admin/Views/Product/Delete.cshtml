@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    @model ProductVM
+    <div class="container">
+        <h1>Delete Product</h1>
+        <div class="row">
+            <div class="col-8">
+                <form method="post" enctype="multipart/form-data">
+                    <input disabled asp-for="Product.Id" hidden />
+                    <input disabled asp-for="Product.ImageUrl" hidden />
+                    <div class="border p-3 mt-4">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Title" class="mb-2">Product: </label>
+                            <input disabled asp-for="Product.Title" class="form-control" />
+                            <span asp-validation-for="Product.Title" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Author" class="mb-2">Author: </label>
+                            <input disabled asp-for="Product.Author" class="form-control" />
+                            <span asp-validation-for="Product.Author" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Description" class="mb-2">Description: </label>
+                            <textarea disabled asp-for="Product.Description" class="form-control" id="description" rows="2" placeholder="Enter your description here"></textarea>
+                            <span asp-validation-for="Product.Description" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.ISBN" class="mb-2">ISBN: </label>
+                            <input disabled asp-for="Product.ISBN" class="form-control" />
+                            <span asp-validation-for="Product.ISBN" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.CategoryId" class="mb-2">Category: </label>
+                            <select disabled asp-for="@Model.Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                                <option disabled selected>--Select Category--</option>
+                            </select>
+                            <span asp-validation-for="Product.CategoryId" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.ListPrice" class="mb-2">List Price: </label>
+                            <input disabled asp-for="Product.ListPrice" class="form-control" />
+                            <span asp-validation-for="Product.ListPrice" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Price1" class="mb-2">Price For 1-50: </label>
+                            <input disabled asp-for="Product.Price1" class="form-control" />
+                            <span asp-validation-for="Product.Price1" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Price50" class="mb-2">Price For 50+ : </label>
+                            <input disabled asp-for="Product.Price50" class="form-control" />
+                            <span asp-validation-for="Product.Price50" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.Price100" class="mb-2">Price For 100+ : </label>
+                            <input disabled asp-for="Product.Price100" class="form-control" />
+                            <span asp-validation-for="Product.Price100" class="text-primary"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Product.ImageUrl" class="mb-2">Image Url : </label>
+                            <input disabled type="file" name="file" class="form-control" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                
+                                <button type="submit" class="btn btn-danger form-control" style="width:150px">Delete</button>
+                               
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-primary" asp-controller="Product" asp-action="Index">Back to the List </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4 mt-4">
+                <img src="@Model.Product.ImageUrl" width="100%" style="border-radius:10px; border: 2px solid #bbb9b9" />
+            </div>
+        </div>
+    </div>
+}
+

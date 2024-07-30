@@ -3,6 +3,7 @@ using BulkyBook.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BulkyBook.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240725074217_ForiegnKeyImplimentation")]
+    partial class ForiegnKeyImplimentation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,10 +88,6 @@ namespace BulkyBook.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("ListPrice")
                         .HasColumnType("float");
 
@@ -119,7 +118,6 @@ namespace BulkyBook.Migrations
                             CategoryId = 1,
                             Description = "King is time, time is everything, you are bound to time, and time is eternal. Nothing else is true!",
                             ISBN = "SWD00785",
-                            ImageUrl = "",
                             ListPrice = 99.0,
                             Price1 = 90.0,
                             Price100 = 80.0,
@@ -133,7 +131,6 @@ namespace BulkyBook.Migrations
                             CategoryId = 2,
                             Description = "In a world where choices echo through time, three lives intertwine, revealing their shared destiny.",
                             ISBN = "EOD12345",
-                            ImageUrl = "",
                             ListPrice = 120.0,
                             Price1 = 110.0,
                             Price100 = 100.0,
@@ -147,7 +144,6 @@ namespace BulkyBook.Migrations
                             CategoryId = 6,
                             Description = "Amidst fog-shrouded secrets, a forbidden love blooms, threatening to unravel the town's hidden past.",
                             ISBN = "WIM67890",
-                            ImageUrl = "",
                             ListPrice = 80.0,
                             Price1 = 75.0,
                             Price100 = 65.0,
@@ -161,7 +157,6 @@ namespace BulkyBook.Migrations
                             CategoryId = 3,
                             Description = "Alchemy, betrayal, and ancient prophecies collide as an unlikely hero seeks the philosopher's stone.",
                             ISBN = "TAL45678",
-                            ImageUrl = "",
                             ListPrice = 105.0,
                             Price1 = 95.0,
                             Price100 = 85.0,
@@ -175,7 +170,6 @@ namespace BulkyBook.Migrations
                             CategoryId = 4,
                             Description = "Lost artifacts, hidden maps, and a quest for serendipity lead a group of adventurers across deserts and time.",
                             ISBN = "SOS23456",
-                            ImageUrl = "",
                             ListPrice = 70.0,
                             Price1 = 65.0,
                             Price100 = 55.0,
